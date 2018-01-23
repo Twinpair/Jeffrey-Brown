@@ -1,0 +1,57 @@
+<% content_for :head do %>
+  <!-- Javascript -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<% end %>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h1><u><%= title %></u></h1>
+      <span><span class="required">* </span>fields are required</span><br><br>
+
+      <%= form_for(@service) do |f| %> 
+        <% if @service.errors.any? %>
+          <div id="error_explanation">
+            <div class="alert alert-danger">
+              The form contains <%= pluralize(@service.errors.count, "error") %>.
+            </div>
+            <ul id="errors">
+            <% @service.errors.full_messages.each do |msg| %>
+              <li class="required"><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <label>Service Name<span class="required">*</span></label><br>
+        <%= f.text_field :title, required: true, class: "form-control" %><br>
+
+        <label>Description<span class="required">*</span></label><br>
+        <%= f.text_area :description, style: "resize: none;", rows: "5", required: true, class: "form-control" %><br>
+
+        <label>Icon (<b>Optional</b>)</label><br>
+        <span>Note: You can lookup an icon <a href="http://fontawesome.io/icons/">here</a> to display for ths service. Make sure to get the icon name. Example: "camera" or "shopping-cart" and paste it in here.</span><br>
+        <%= f.text_field :icon, class: "form-control" %><br><br>
+
+        <label>Order (<b> Must be a number greater than 0</b>)</label><br>
+        <span>Note: If order field left blank, this service will be added to the end of the order</span><br>
+        <%= f.text_field :order_listed, class: "form-control" %><br><br>
+
+        <div class="col-lg-6">
+          <%= f.submit button, class: "btn btn-success btn-lg", style: "margin-bottom: 30px;" %>
+        </div>
+
+        <% if button == "Create" %>
+          <div class="col-lg-6">
+            <a href="/services" class="btn btn-danger btn-lg">Cancel</a>
+          </div>
+        <% elsif button == "Update" %>
+          <div class="col-lg-6">
+            <%= link_to "Delete", @service, method: :delete, data: { confirm: "Are you sure you want to delete this service?" }, class: "btn btn-danger btn-lg" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

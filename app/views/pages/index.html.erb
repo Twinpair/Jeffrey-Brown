@@ -1,16 +1,10 @@
-<!-- Preloader -->
-    <div class="loader">
-      <div class="loader-inner">
-        <div class="k-line k-line11-1"></div>
-        <div class="k-line k-line11-2"></div>
-        <div class="k-line k-line11-3"></div>
-        <div class="k-line k-line11-4"></div>
-        <div class="k-line k-line11-5"></div>
-      </div>
-    </div>
-    <!-- End Preloader -->
-      
-    <!-- Start Header -->
+<% content_for :head do %>
+  <!-- Javascript -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<% end %>
+
+<!-- Start Header -->
     <header id="header">
       <div class="container">
         <div class="row">
@@ -105,70 +99,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.2s">
-            <!-- Single Service -->
-            <div class="single-service active">
-              <h2>Photography</h2>
-              <p>Check out my photography portoflio below. I can do some work for you.</p>
-            </div>
-            <!-- End Single Service -->
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s">
-            <!-- Single Service -->
-            <div class="single-service">
-              <i class="fa fa-code"></i>
-              <h2>Lawn Mower</h2>
-              <p>I can mow your lawn, large or small.</p>
-            </div>
-            <!-- End Single Service -->
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s">
-            <!-- Single Service -->
-            <div class="single-service">
-              <i class="fa fa-mobile"></i>
-              <h2>Mover</h2>
-              <p>I can help you move your furniture, or anythign really.</p>
-            </div>
-            <!-- End Single Service -->
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.8s">
-            <!-- Single Service -->
-            <div class="single-service">
-              <i class="fa fa-pencil-square-o"></i>
-              <h2>Placeholder</h2>
-              <p>Placeholder</p>
-            </div>
-            <!-- End Single Service -->
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="1s">
-            <!-- Single Service -->
-            <div class="single-service">
-              <i class="fa fa-html5"></i>
-              <h2>Photography</h2>
-              <p>Check out my photograpghy portoflio below. I can do some work for you.</p>
-            </div>
-            <!-- End Single Service -->
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s">
-            <!-- Single Service -->
-            <div class="single-service">
-              <i class="fa fa-code"></i>
-              <h2>Lawn Mower</h2>
-              <p>I can mow your lawn, large or small.</p>
-            </div>
-            <!-- End Single Service -->
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s">
-            <!-- Single Service -->
-            <div class="single-service">
-              <i class="fa fa-mobile"></i>
-              <h2>Mover</h2>
-              <p>I can help you move your furniture, or anythign really.</p>
-            </div>
-            <!-- End Single Service -->
-          </div>
+          <%= render @services %>
         </div>
       </div>
     </section>
@@ -277,7 +208,7 @@
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-success">Submit</button>
             </form>
           </div>
         </div>

@@ -1,0 +1,17 @@
+<% if @counter % 4 == 0 && @counter != 0%>
+</div>
+        <div class="row">
+<% end %>  
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <!-- Single Service -->
+            <div class="single-service" <%= controller.controller_name == "services" ? "onclick=document.location='#{edit_service_path(service.id)}'" : "" %> <%= controller.controller_name == "services" ? "style=cursor:pointer;" : "" %>>
+              <i class="fa fa-<%= service.icon %>" %></i>
+              <h2><%= service.title %></h2>
+              <p id="description"><%= service.description %></p>
+            <% if controller.controller_name == "services" %>
+              <p>Order Listed: <%= service.order_listed %></p>
+            <% end %>
+            </div>
+            <!-- End Single Service -->
+          </div>
+        <% @counter = @counter + 1 %>
