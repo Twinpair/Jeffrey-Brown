@@ -1,0 +1,19 @@
+<!-- Start portfolio -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <a href="/" class="btn btn-primary shine" style="margin-bottom: 10px;">Go to Hompage</a>
+            <div class="section-title">
+              <h1>My Photography<i class="fa fa-camera"></i></h1><br>
+              <%= link_to("New Photo", new_photo_path, class: "btn btn-success")%><br><br>
+              <h3>Click a service to edit or delete it</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <%= render @photos %>
+        </div>
+      </div>
+    </section>
+    <!--/ End portfolio -->

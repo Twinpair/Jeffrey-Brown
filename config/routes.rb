@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'information/edit', to: 'information#edit'
 
   resources :services
+  resources :photos
   resources :information, only: [:index, :update]
 
  end

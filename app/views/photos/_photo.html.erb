@@ -1,0 +1,16 @@
+<% if @counter % 3 == 0 && @counter != 0%>
+</div>
+        <div class="row">
+<% end %>  
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="card h-100" <%= controller.controller_name == "photos" ? "onclick=document.location='#{edit_photo_path(photo.id)}'" : "" %> <%= controller.controller_name == "photos" ? "style=cursor:pointer;" : "" %>>
+              <%= image_tag(photo.image.url) %>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#"><%= photo.title %></a>
+                </h4>
+                <p class="card-text"><%= photo.description %></p>
+              </div>
+            </div>
+          </div>
+        <% @counter = @counter + 1 %>
