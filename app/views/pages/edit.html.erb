@@ -1,0 +1,53 @@
+<style type="text/css">
+  .row{
+    margin-bottom: 30px;
+  }
+  .btn{
+    margin: 5px 0 5px 0;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <%= link_to "Go Back To Homepage", root_path, class: "btn btn-success", style: "margin-top: 20px;" %>
+    <div class="model col-lg-12 text-center">
+      <h1 style="margin-bottom: 30px;">Edit Your Website</h1>
+
+      <div class="row">
+        <h1><span>View or Edit the information on your site</span></h1>
+        <div class="col-lg-3 col-lg-offset-3">
+          <h1><%= link_to "View Information", information_index_path, class: "btn btn-primary btn-lg" %></h1>
+        </div>
+        <div class="col-lg-3">
+          <h1><%= link_to "Edit Information", information_edit_path, class: "btn btn-warning btn-lg" %></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <h1><span>View or Edit the services on your site</span></h1>
+        <div class="col-lg-3 col-lg-offset-3">
+          <h1><%= link_to "View Services", services_path, class: "btn btn-primary btn-lg" %></h1>
+        </div>
+        <div class="col-lg-3">
+          <h1><%= link_to "Edit Services", services_path, class: "btn btn-warning btn-lg" %></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <h1><span>View or Edit the photography on your site</span></h1>
+        <div class="col-lg-3 col-lg-offset-3">
+          <h1><%= link_to "View Photos", photos_path, class: "btn btn-primary btn-lg" %></h1>
+        </div>
+        <div class="col-lg-3">
+          <h1><%= link_to "Edit Photos", photos_path, class: "btn btn-warning btn-lg" %></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <h1><span>View Messages you have received on your site</span></h1>
+        <h1><%= link_to "View Messages", messages_path, class: "btn btn-primary btn-lg" %></h1>
+      </div>
+
+    </div>
+  </div>
+</div>

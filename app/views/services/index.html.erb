@@ -3,7 +3,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <a href="/" class="btn btn-primary shine" style="margin-bottom: 10px;">Go to Hompage</a>
+            <%= link_to "Go Back To Homepage", root_path, class: "btn btn-success", style: "margin-top: 20px; margin-bottom: 15px;" %>
+            <%= link_to "Go Back To Edit page", edit_path, class: "btn btn-warning", style: "margin-top: 20px; margin-bottom: 15px;" %>
             <div class="section-title">
               <%= link_to("New Service", new_service_path, class: "btn btn-success")%><br><br>
               <h1>Services<i class="fa fa-handshake-o"></i></h1><br>

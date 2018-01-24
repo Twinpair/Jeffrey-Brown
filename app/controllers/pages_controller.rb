@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  
   def index
     @information = Information.first
     @services = Service.all
@@ -7,4 +8,8 @@ class PagesController < ApplicationController
     #Counter is used to add a row div
     @counter = 0
   end
+
+  def edit
+  end
+  
 end

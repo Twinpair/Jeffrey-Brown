@@ -6,7 +6,8 @@
 
 <div class="container">
   <div class="row">
-    <%= link_to "Go Back To Homepage", root_path, class: "btn btn-success", style: "margin-top: 20px;" %><br>
+    <%= link_to "Go Back To Homepage", root_path, class: "btn btn-success", style: "margin-top: 20px; margin-bottom: 15px;" %>
+            <%= link_to "Go Back To Edit page", edit_path, class: "btn btn-warning", style: "margin-top: 20px; margin-bottom: 15px;" %>
     <div class="model messages col-lg-12">
       <h1 class="text-center">All Messages (<%= @messages.count %>)</h1><br>
       <div class="row">
