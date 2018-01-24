@@ -25,3 +25,6 @@
 
 # Ignore uploaded test images.
 /public/uploads
+
+# Ignore development Enviromental Variables.
+/config/local_env.yml 

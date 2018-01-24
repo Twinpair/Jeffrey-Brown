@@ -1,4 +1,7 @@
 class InformationController < ApplicationController
+
+  before_action :authenticate
+
   def index
     @information = Information.first
   end
