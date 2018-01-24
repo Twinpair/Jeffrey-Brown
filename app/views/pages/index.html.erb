@@ -133,17 +133,37 @@
             </div>
           </div>
           <div class="col-lg-6 col-lg-offset-3">
-            <form action="/action_page.php">
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-              </div>
-              <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-              </div>
-              <button type="submit" class="btn btn-success">Submit</button>
-            </form>
+            <%= form_for(@message) do |f| %> 
+              <% if flash.key?("success") %>
+                <% flash.each do |message_type, message| %>
+                  <%= content_tag(:div, message, class: "alert alert-#{message_type} text-center", id: "body-up", style: "font-size: 17px;") %>
+                <% end %>
+              <% else %>
+                <span>( Fields with <span class="required">*</span> are required )</span><br>
+                <% flash.each do |message_type, message| %>
+                  <% messages = message.split("=") %>
+                  <div class="alert alert-danger text-center" id="body-up", style="font-size: 17px;"><%= messages[0] %><br><%= messages[1] %><br><%= messages[2] %></div>                
+                <% end %>
+
+                <label>Name <span class="required">*</span></label>
+                <%= f.text_field :name, required: true, class: "form-control" %><br>
+
+                <label>Email <span class="required">*</span></label>
+                <%= f.text_field :email, type: "email", required: true, class: "form-control" %><br>
+
+                <%= f.label :subject %>
+                <%= f.text_field :subject, class: "form-control" %><br>
+
+                <label>Message <span class="required">*</span></label>
+                <%= f.text_area :message, style: "resize: none;", rows: "10", required: true, class: "form-control" %><br>
+
+                <label>Captcha <span class="required">*</span></label><br>
+                <%= image_tag "captcha.png", style: "margin-bottom: 5px; display: initial;" %>
+                <%= f.text_field :captcha, required: true, class: "form-control" %><br>
+
+                <%= f.submit "Send", class: "btn btn-success btn-lg" %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>

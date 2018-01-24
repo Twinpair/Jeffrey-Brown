@@ -1,0 +1,8 @@
+<%= @message.name %> left a message on your personal website
+
+Details below:
+
+Name: <%= @message.name %>
+Email: <%= @message.email %>
+Date: <%= @message.created_at.strftime("%B %d, %Y") %>
+Message: <%= @message.message %>

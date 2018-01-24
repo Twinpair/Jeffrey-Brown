@@ -1,0 +1,34 @@
+<% content_for :head do %>
+  <!-- Javascript -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <%= link_to "Go Back To Homepage", root_path, class: "btn btn-success", style: "margin-top: 20px;" %><br>
+    <div class="model messages col-lg-12">
+      <h1 class="text-center">All Messages (<%= @messages.count %>)</h1><br>
+      <div class="row">
+        <div class="col-lg-1 col-md-1">Name</div>
+        <div class="col-lg-3 col-md-3">Email</div>
+        <div class="col-lg-2 col-md-2">Subject</div>
+        <div class="col-lg-3 col-md-3">Message</div>
+        <div class="col-lg-1 col-md-1">Date</div>
+        <div class="col-lg-2 col-md-2">Delete</div>
+      </div>
+      <hr>
+      <% @messages.each do |message| %>
+        <div class="row">
+          <div class="col-lg-1 col-md-1"><%= message.name %></div>
+          <div class="col-lg-3 col-md-3"><%= message.email %></div>
+          <div class="col-lg-2 col-md-2"><%= message.subject %></div>
+          <div class="col-lg-3 col-md-3"><%= message.message %></div>
+          <div class="col-lg-1 col-md-1"><%= message.created_at.strftime("%B %d, %Y")%></div>
+          <div class="col-lg-2 col-md-2"><%= link_to "Delete", message, class: "btn btn-danger btn-lg", method: :delete, data: { confirm: "Are you sure you want to delete this message?" } %></div>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+  </div>
+</div>

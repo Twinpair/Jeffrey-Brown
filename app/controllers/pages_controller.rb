@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @information = Information.first
     @services = Service.all
     @photos = Photo.all
+    @message = Message.new
     #Counter is used to add a row div
     @counter = 0
   end

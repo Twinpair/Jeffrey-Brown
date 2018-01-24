@@ -1,0 +1,9 @@
+<div style="margin-left: 20px;">
+  <h2><%=@message.name%> sent a message on your personal website</h2>
+  <h3>Details below:</h3>
+  <p><b>Name:</b> <%= @message.name %></p>
+  <p><b>Email:</b> <%= @message.email %></p>
+  <p><b>Subject:</b> <%= @message.subject %></p>
+  <p><b>Date:</b> <%= @message.created_at.strftime("%B %d, %Y") %></p>
+  <p><b>Message:</b> <%= @message.message %></p>
+</div>
