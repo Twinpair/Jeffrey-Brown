@@ -8,6 +8,8 @@
       <p><b>About Me:</b> <%= @information.about %></p><br>
       <p><b>Services Description:</b> <%= @information.services_description %></p><br>
       <p><b>Photography Description:</b> <%= @information.photography_description %></p><br>
+      <p><b>Email:</b> <%= @information.email %></p><br>
+      <p><b>Phine #:</b> <%= @information.phone %></p><br>
       <p><b>Contact Description:</b> <%= @information.contact_description %></p><br>
       <p><b>Current Header Image:</b><%= image_tag(@information.header_image? ? @information.header_image.url : asset_path('tiger.jpg')) %></p><br>
     </div>

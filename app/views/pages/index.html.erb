@@ -129,7 +129,13 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-title">
               <h1>Contact Me<i class="fa fa-id-card-o"></i></h1>
-              <p><%= @information.contact_description %></p>
+              <% if !@information.email.blank? %>
+              <br><p><b>Email:</b> <%= @information.email %></p>
+              <% end %>
+              <% if !@information.phone.blank? %>
+              <br><p><b>Phone #:</b> <%= @information.phone %></p>
+              <% end %>
+              <br><p><%= @information.contact_description %></p>
             </div>
           </div>
           <div class="col-lg-6 col-lg-offset-3">
