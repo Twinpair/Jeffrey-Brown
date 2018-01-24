@@ -39,7 +39,7 @@
     <!--/ End Header -->
       
     <!-- Start Personal Area -->
-    <section id="personal-area">
+    <section id="personal-area" style="background-image: url(<%= @information.header_image? ? @information.header_image.url : asset_path('tiger.jpg') %>)">
       <div class="personal-main">
         <div class="personal-single">
           <div class="container">
@@ -48,13 +48,13 @@
                 <!-- Personal Text -->
                 <div class="personal-text">
                   <div class="my-info">
-                    <h1>Jeffrey Brown</h1>
+                    <h1><%= @information.name %></h1>
                     <h2 class="cd-headline clip is-full-width">
                        <span class="cd-words-wrapper">
-                         <b class="is-visible">Photographer</b>
-                         <b>Lawn Mower</b>
-                         <b>Mover</b>
-                         <b>And More</b>
+                        <% @services.each_with_index do |value, key| %>
+                          <b <%= key == 0 ? "class=is-visible" : "" %> ><%= value.title %></b>
+                        <% end %>
+                        <b>And More</b>
                       </span>
                     </h2>
                     <div class="button">
@@ -79,7 +79,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-title">
               <h1>About Me<i class="fa fa-user-circle"></i></h1>
-              <p>Hi, my name is Jeffrey Brown and I have the means to perform many different tasks such as lawn mowing, photography, moving, and other small jobs. I am also willing to take requests for anything not including on my list.<p>
+              <p><%= @information.about %><p>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-title">
               <h1>My Services<i class="fa fa-handshake-o"></i></h1>
-              <p>Here is a list of services I provide.<p>
+              <p><%= @information.services_description %><p>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-title">
               <h1>My Photography<i class="fa fa-camera"></i></h1>
-              <p>Here is a showcase of my photography.</p>
+              <p><%= @information.photography_description %></p>
             </div>
           </div>
         </div>
@@ -195,7 +195,7 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-title">
               <h1>Contact Me<i class="fa fa-id-card-o"></i></h1>
-              <p>Feel free to contact me through the form below.</p>
+              <p><%= @information.contact_description %></p>
             </div>
           </div>
           <div class="col-lg-6 col-lg-offset-3">

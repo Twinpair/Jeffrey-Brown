@@ -1,0 +1,14 @@
+require 'test_helper'
+
+class InformationControllerTest < ActionDispatch::IntegrationTest
+  test "should get index" do
+    get information_index_url
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get information_edit_url
+    assert_response :success
+  end
+
+end

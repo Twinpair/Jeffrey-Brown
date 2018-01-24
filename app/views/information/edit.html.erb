@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h1><u>Edit Information Data</u></h1>
+      <p class="text-center"><span>Leave field blank if you want nothing to be displayed</span></p>
+
+      <%= form_for(@information) do |f| %> 
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %><br>
+
+        <%= f.label :header_image %>
+        <%= f.file_field :header_image, accept: 'image/jpeg,image/gif,image/png', class: "form-control" %><br>
+        <p><b>Current Header Image:</b><%= image_tag(@information.header_image? ? @information.header_image.url : asset_path('tiger.jpg')) %></p><br>
+
+        <%= f.label :about, "About Me" %>
+        <%= f.text_area :about, style: "resize: none;", rows: "10", class: "form-control" %><br>
+
+        <%= f.label :services_description, "Services Description" %>
+        <%= f.text_area :services_description, style: "resize: none;", rows: "5", class: "form-control" %><br>
+
+        <%= f.label :photography_description, "Photography Description" %>
+        <%= f.text_area :photography_description, style: "resize: none;", rows: "5", class: "form-control" %><br>
+
+        <%= f.label :contact_description, "Contact Description" %>
+        <%= f.text_area :contact_description, style: "resize: none;", rows: "5", class: "form-control" %><br>
+
+        <div class="col-lg-6">
+          <%= f.submit "Update", class: "btn btn-success btn-lg", style: "margin-bottom: 30px;" %>
+        </div>
+        <div class="col-lg-6">
+          <a href="/information" class="btn btn-danger btn-lg">Cancel</a>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
