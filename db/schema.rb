@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20180129054237) do
     t.datetime "updated_at",   null: false
     t.integer  "order_listed"
     t.integer  "album_id"
-    t.index ["album_id"], name: "index_photos_on_album_id"
   end
 
   create_table "services", force: :cascade do |t|
