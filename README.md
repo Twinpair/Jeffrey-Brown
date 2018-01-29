@@ -1,3 +1,3 @@
 # Jeffrey-Brown
 
-https://jeffreybrown.herokuapp.com
+http://www.warmtummyrubs.com/
