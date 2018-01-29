@@ -48,7 +48,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     Photo.decrement_order(@photo.id, @photo.order_listed)
     @photo.destroy
-    redirect_to album_path(@photo.album_id)
+    redirect_to album_path(@photo.album_id, edit: true)
   end
 
 private
