@@ -2,6 +2,8 @@ class Photo < ApplicationRecord
 
   mount_uploader :image, PhotoUploader
 
+  belongs_to :album
+
   # Default order is set by services order_listed attribute 
   default_scope -> { order(order_listed: :asc) }
   validates :title, presence: true

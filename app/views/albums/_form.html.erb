@@ -10,13 +10,13 @@
       <h1><u><%= title %></u></h1>
       <span><span class="required">* </span>fields are required</span><br><br>
 
-      <%= form_for(@photo) do |f| %> 
-        <% if @photo.errors.any? %>
+      <%= form_for(@album) do |f| %> 
+        <% if @album.errors.any? %>
           <div id="error_explanation">
             <div class="alert alert-danger">
-              The form contains <%= pluralize(@photo.errors.count, "error") %>.
+              The form contains <%= pluralize(@album.errors.count, "error") %>.
               <ul id="errors">
-              <% @photo.errors.full_messages.each do |msg| %>
+              <% @album.errors.full_messages.each do |msg| %>
                 <li class="required"><%= msg %></li>
               <% end %>
               </ul>
@@ -24,23 +24,14 @@
           </div>
         <% end %>
 
-        <label>Title<span class="required">*</span></label><br>
-        <%= f.text_field :title, required: true, class: "form-control" %><br>
+        <label>Name<span class="required">*</span></label><br>
+        <%= f.text_field :name, required: true, class: "form-control" %><br>
 
         <label>Description</label><br>
         <%= f.text_area :description, style: "resize: none;", rows: "5", class: "form-control" %><br>
 
-        <label>Album <br>(Must select an album from dropdown menu)</label><br>
-        <%= select_tag :album_id, options_for_select(Album.all.map{ |a| [a.name, a.id] }, @photo.album_id ), class: "form-control" %><br>
-
-        <%= f.label :image %>
-        <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: "form-control" %><br>
-      <% if @photo.image? %>
-        <p><b>Current Image:</b><%= image_tag(@photo.image.url) %></p><br>
-      <% end %>
-
         <label>Order (<b> Must be a number greater than 0</b>)</label><br>
-        <span>Note: If order field left blank, this photo will be added to the end of the order</span><br>
+        <span>Note: If order field left blank, this album will be added to the end of the order</span><br>
         <%= f.text_field :order_listed, class: "form-control" %><br><br>
 
         <div class="col-lg-6">
@@ -53,7 +44,7 @@
           </div>
         <% elsif button == "Update" %>
           <div class="col-lg-6">
-            <%= link_to "Delete", @photo, method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-lg" %>
+            <%= link_to "Delete", @album, method: :delete, data: { confirm: "Deleting this album will delete the photos in it. Are you sure you want to delete this album? " }, class: "btn btn-danger btn-lg" %>
           </div>
         <% end %>
       <% end %>

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def index
     @information = Information.first
     @services = Service.all
-    @photos = Photo.all
+    @albums = Album.all
     @message = Message.new
     #Counter is used to add a row div
     @counter = 0

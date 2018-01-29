@@ -1,8 +1,6 @@
-<% content_for :head do %>
-  <!-- Javascript -->
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<% end %>
 
 <!-- Start Header -->
     <header id="header">
@@ -112,11 +110,12 @@
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-title">
               <h1>My Photography<i class="fa fa-camera"></i></h1>
+              <h4>Click on an album to view the photos</h4>
             </div>
           </div>
         </div>
         <div class="row">
-          <%= render @photos %>
+          <%= render @albums %>
         </div>
       </div>
     </section>

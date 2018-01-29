@@ -3,13 +3,15 @@
         <div class="row">
 <% end %>  
           <div class="col-lg-4 col-md-6 portfolio-item">
-            <div class="card h-100" <%= controller.controller_name == "photos" ? "onclick=document.location='#{edit_photo_path(photo.id)}'" : "" %> <%= controller.controller_name == "photos" ? "style=cursor:pointer;" : "" %>>
+            <div class="card h-100" <%= "onclick=document.location='#{edit_photo_path(photo.id)}'" if params['edit'] %> <%= "style=cursor:pointer;" if params['edit'] %>>
               <%= image_tag(photo.image.url) %>
               <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#"><%= photo.title %></a>
-                </h4>
+                <h4 class="card-title text-center" style="margin: 5px;"><%= photo.title %></h4>
                 <p class="card-text"><%= photo.description %></p>
+
+                <% if params['edit'] %>
+                  <br><p class="card-text">Order Listed: <%= photo.order_listed %></p>
+                <% end %>
               </div>
             </div>
           </div>

@@ -1,0 +1,39 @@
+<!-- Start portfolio -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <%= link_to "Go Back To Homepage", root_path, class: "btn btn-success", style: "margin-top: 20px; margin-bottom: 15px;" %>
+            <%= link_to "Go Back To Edit page", edit_path, class: "btn btn-warning", style: "margin-top: 20px; margin-bottom: 15px;" %>
+            <div class="section-title">
+              <h1>My Albums<i class="fa fa-camera"></i></h1><br>
+              <%= link_to("New Album", new_album_path, class: "btn btn-success")%><br><br>
+              <h3>Click an album to edit or delete it</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <% @albums.each do |album| %>
+      <% if @counter % 3 == 0 && @counter != 0%>
+        </div>
+        <div class="row">
+      <% end %>  
+          <div class="col-lg-4 col-md-6 portfolio-item">
+            <div class="card h-100" onclick="document.location='<%= album_path(album.id, edit: true) %>'" style="cursor: pointer;">
+              <%= image_tag(album.photos.first.image.url) if album.photos.count > 0 %>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#"><%= album.name %></a>
+                </h4>
+                <p class="card-text"><%= album.description %></p>
+
+                <br><p class="card-text">Order Listed: <%= album.order_listed %></p>
+              </div>
+            </div>
+          </div>
+        <% @counter = @counter + 1 %>
+        <% end %>
+        </div>
+      </div>
+    </section>
+    <!--/ End portfolio -->
