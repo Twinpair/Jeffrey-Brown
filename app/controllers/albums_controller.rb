@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   
-  before_action :authenticate
+  before_action :authenticate, except: :show
 
   def index
     @albums = Album.all
