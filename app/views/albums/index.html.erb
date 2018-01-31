@@ -22,9 +22,7 @@
             <div class="card h-100" onclick="document.location='<%= album_path(album.id, edit: true) %>'" style="cursor: pointer;">
               <%= image_tag(album.photos.first.image.url) if album.photos.count > 0 %>
               <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#"><%= album.name %></a>
-                </h4>
+                <h4 class="card-title"><%= album.name %></h4>
                 <p class="card-text"><%= album.description %></p>
 
                 <br><p class="card-text">Order Listed: <%= album.order_listed %></p>
