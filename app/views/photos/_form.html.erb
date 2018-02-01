@@ -49,7 +49,7 @@
 
         <% if button == "Create" %>
           <div class="col-lg-6">
-            <a href="/photos" class="btn btn-danger btn-lg">Cancel</a>
+            <%= link_to "Cancel", album_path(@photo.album_id, edit: true), class: "btn btn-danger btn-lg" %>
           </div>
         <% elsif button == "Update" %>
           <div class="col-lg-6">
